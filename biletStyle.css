@@ -28,6 +28,7 @@ nav {
     border-top: 1px solid #dee2e6;
     color: #868e96;
     z-index: 100;
+    font-size: 12px; /* Przeliczone z 1.8em */
 }
 
 nav img {
