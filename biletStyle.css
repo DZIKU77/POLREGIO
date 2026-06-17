@@ -50,7 +50,11 @@ nav div {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    font-size: 10px; /* Przeliczone z 1.8em */
+}
+
+nav div h2 {
+    font-size: 10px; /* Przeliczone z 1.4em */
+    margin: 0;
 }
 
 /* GÓRNY NAGŁÓWEK (Sticky na samej górze) */
