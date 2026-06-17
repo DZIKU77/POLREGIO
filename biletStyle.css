@@ -104,7 +104,7 @@ nav div h2 {
     color: #868e96;
     margin: 0;
     padding: 10px 15px;
-    text-align: left;
+    text-align: center;
     background-color: #e9ecef;
     position: sticky;
     top: 56px;
@@ -124,12 +124,20 @@ nav div h2 {
     padding-top: 10px;
     width: 100%;
     margin-bottom: 20px;
+    font-weight: 100;
 }
 
-#qr-code img {
+.zoomable-img {
     width: 240px; /* Przeliczone z 650px - idealny kwadrat mobilny */
-    height: 240px;
-    margin-bottom: 15px;
+    max-width: 90%; /* Dostosowuje się do szerokości ekranu */
+    transition: transform 0.3s ease; /* Płynne powiększanie */
+    cursor: pointer; /* Zmienia kursor na wskaźnik */
+}
+
+.zoomable-img.zoomed {
+    transform: scale(1.5); /* Powiększenie 2x */
+    z-index: 1000; /* Na wierzchu */
+    position: relative; /* Aby nie przesłaniało innych elementów */
 }
 
 /* NUMER BILETU */

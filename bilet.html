@@ -20,7 +20,7 @@
   </section>
   <h3 id="info">Zintegrowany Bilet Pociąg + Autobus (II strefa kolej...</h3>
   <section id="qr-code">
-    <img src="image.png" alt="QR Code">
+    <img src="image.png" alt="QR Code" class="zoomable-img">
   </section>
     <p id="ticket-number">Ba28112764</p>
 
@@ -106,6 +106,14 @@
     const dataDo = parametry.get('dataDo');
     const dataOdElement = document.querySelectorAll('#dataOd');
     const dataDoElement = document.getElementById('dataDo');
+
+    const images = document.querySelectorAll('.zoomable-img');
+    images.forEach(image => {
+        image.addEventListener('dblclick', function(e) {
+            e.preventDefault(); // Zapobiega domyślnemu zachowaniu (np. zaznaczaniu tekstu)
+            this.classList.toggle('zoomed');
+        });
+    });
 
     dataOdElement.forEach(element => {
         element.textContent = dataOd;
