@@ -1,187 +1,311 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  user-select: none; /* Blokuje podświetlanie tekstu przy dotknięciu ekranu */
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #dbdbdb;
 }
 
-/* Wypełnienie całego okna przeglądarki mobilnej */
-html, body {
-  width: 100%;
-  height: 100%;
-  background-color: #f5f6f8;
-  overflow: hidden; /* Brak suwaków na całym ekranie */
+*{
+    font-family: 'Inter', sans-serif;
 }
 
-/* Główny kontener symulujący telefon 1080x2340 */
-.app-container {
-  width: 100%;
-  height: 100%;
-  max-width: 412px; /* Standardowa szerokość logiczna dla ekranów 1080px */
-  max-height: 892px; /* Standardowa wysokość logiczna dla 2340px */
-  margin: 0 auto;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 60px;
+    padding-top: 10px;
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+    border-top: 2px solid gray;
+    color: gray;
 }
 
-/* Pasek statusu telefonu (bateria, godzina) */
-.phone-status-bar {
-  background-color: #495057;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 20px 2px 20px;
-  font-size: 13px;
-  font-weight: bold;
+nav img{
+    width: 70px;
+    height: auto;
+    filter: brightness(1) invert(0.3);
 }
 
-.status-icons {
-  display: flex;
-  gap: 8px;
+nav #active img{
+    filter: brightness(0.6) invert(0);
+    width: 90px;
 }
 
-/* Nagłówek Season Ticket */
-.ticket-header {
-  background-color: #495057;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 15px 15px 15px;
-  font-size: 17px;
-  font-weight: 500;
+nav #active{
+    color: red
 }
 
-/* Szary podtytuł */
-.ticket-subheader {
-  background-color: #e9ecef;
-  color: #6c757d;
-  padding: 10px 15px;
-  font-size: 13px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+nav div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
-/* Środek aplikacji - dynamicznie rozciągany */
-.ticket-content {
-  flex: 1; 
-  padding: 20px 15px;
-  overflow-y: auto; /* W razie potrzeby środek można przewijać, a paski stoją w miejscu */
-  display: flex;
-  flex-direction: column;
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding-top: 150px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #49515a;
+    position: sticky;
+    top: 0;
 }
 
-/* Kod QR */
-.qr-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px 0 25px 0;
+#header h2{
+    font-size: 2.5em;
+    color: #f1f3f5;
+    margin: 0;
+    font-weight: normal;
 }
 
-.qr-placeholder {
-  width: 250px;
-  height: 250px;
-  background-color: #ffffff;
-  border: 1px solid #000;
-  padding: 5px;
+#header img{
+    width: 70px;
+    height: auto;
+    filter: brightness(0) invert(1);
 }
 
-.fake-qr {
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(45deg, #000, #000 8px, #fff 8px, #fff 16px);
-  opacity: 0.9; /* Ciemniejszy, żeby imitował prawdziwy kod na screenie */
+#header h3{
+    font-size: 2em;
+    color: #dbdbdb;
+    margin: 0;
+    font-weight: normal;
 }
 
-.ticket-number {
-  margin-top: 15px;
-  font-size: 19px;
-  letter-spacing: 1px;
-  color: #212529;
+#header div{
+    display: flex;
+    align-items: center;
 }
 
-/* Dane firmy */
-.info-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12.5px;
-  color: #000000;
-  line-height: 1.4;
-  margin-bottom: 12px;
+#info{
+    font-size: 2em;
+    color: rgb(139, 139, 139);
+    margin: 20px;
+    text-align: center;
+    word-spacing: 5px;
+    background-color: #dbdbdb;
+    position: sticky;
+    top: 240px;
 }
 
-.website-details {
-  text-align: right;
+#qr-code{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+    padding-top: 200px;
+    height: 50%;
+    width: 100%;
+    margin-bottom: 80px;
 }
 
-/* Tabela z obramowaniem */
-.ticket-table {
-  border: 1px solid #000000;
-  width: 100%;
+#qr-code img{
+    width: 650px;
+    height: auto;
+    margin-bottom: 110px;
+    transition: 0.2s;
 }
 
-.table-row {
-  display: flex;
-  justify-content: space-between;
+#qr-code img:hover{
+    transform: scale(1.5);
 }
 
-.border-bottom {
-  border-bottom: 1px solid #000000;
+#ticket-number{
+    font-size: 3em;
+    color: black;
+    margin: 20px;
+    text-align: center;
+    word-spacing: 0px;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 100px;
 }
 
-.table-cell {
-  padding: 10px;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #000;
+#val{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-.main-title, .description {
-  flex: 2.3;
-  border-right: 1px solid #000000;
+#kontakt{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8em;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.tariff-details, .class-info {
-  flex: 1;
-  text-align: right;
+#tabela{
+    border: 2px solid black;
+    background: white;
 }
 
-.class-info {
-  font-weight: bold;
+#tabela #sekcja1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+    height: 140px;
 }
 
-/* DOLNE MENU (Zablokowane na stałe na dole ekranu) */
-.bottom-nav {
-  height: 65px;
-  border-top: 1px solid #dee2e6;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-bottom: 5px;
+#sekcja1a{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #adb5bd;
-  font-size: 11px;
-  font-weight: 500;
-  cursor: pointer;
+#sekcja1a h2{
+    font-size: 2.1em;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    font-weight: 600;
 }
 
-.nav-icon {
-  font-size: 20px;
-  margin-bottom: 2px;
+#sekcja1a p{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+    font-weight: 300;
 }
 
-/* Podświetlona zakładka "My Tickets" */
-.nav-item.active {
-  color: #dc3545; /* Czerwony kolor aktywnego elementu ze screena */
+#sekcja1b{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 1.8em;
+}
+
+#sekcja2{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    height: 170px;
+    padding: 20px;
+}
+
+#sekcja2 h2{
+    font-size: 2em;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+#sekcja2 p{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+    font-weight: 300;
+}
+
+#sekcja3{
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    padding: 20px;
+    padding-top: 80px;
+    border-bottom: 2px solid black;
+}
+
+#sekcja3 *{
+    margin: 0px;
+    padding: 0px;
+}
+
+#sekcja3 h2{
+    font-size: 2em;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: 600;
+}
+
+#sekcja3 h1{
+    font-size:3em;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#sekcja3 p{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+    font-weight: 300;
+    padding-bottom: 40px;
+}
+
+#sekcja4{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#sekcja4 h2{
+    font-size: 1.8em;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: 400;
+}
+
+#sekcja4 h1{
+    font-size: 2.5em;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    font-weight: 800;
+}
+
+#sekcja5{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding: 20px;
+}
+
+#sekcja5 h2{
+    font-size: 2em;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    font-weight: 400;
+}
+
+#sekcja5 .price{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+#sekcja5 p{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+    font-weight: 400;
+}
+
+#sekcja6{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#sekcja6 p{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+    font-weight: 400;
+}
+
+#sekcja6 h2{
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    margin-top: 40px;
+    font-weight: 500;
 }
