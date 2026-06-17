@@ -135,7 +135,7 @@ nav div h2 {
 }
 
 .zoomable-img.zoomed {
-    transform: scale(1.5); /* Powiększenie 2x */
+    transform: scale(1.2); /* Powiększenie 2x */
     z-index: 1000; /* Na wierzchu */
     position: relative; /* Aby nie przesłaniało innych elementów */
 }
