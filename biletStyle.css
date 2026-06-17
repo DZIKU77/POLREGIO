@@ -28,7 +28,6 @@ nav {
     border-top: 1px solid #dee2e6;
     color: #868e96;
     z-index: 100;
-    font-size: 7px; /* Przeliczone z 1.8em */
 }
 
 nav img {
@@ -51,6 +50,7 @@ nav div {
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    font-size: 10px; /* Przeliczone z 1.8em */
 }
 
 /* GÓRNY NAGŁÓWEK (Sticky na samej górze) */
