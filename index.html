@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="loginStyle.css">
+  <link rel="manifest" href="manifest.json">
   <title>Automatyczny Generator Biletów</title>
 </head>
 <body>
@@ -53,6 +54,12 @@
       // 6. Przesyłamy gotowe daty do drugiego pliku
       window.location.href = `bilet.html?dataOd=${dataOd}&dataDo=${dataDo}`;
     });
+
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then(reg => console.log('Działa!')).catch(err => console.log('Nie działa!: ', err));
+      })
+    }
   </script>
 
 </body>
